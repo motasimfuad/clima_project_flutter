@@ -10,67 +10,75 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/location_background.jpg'),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.8), BlendMode.dstATop),
+      body: SafeArea(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/location_background.jpg'),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                  Colors.white.withOpacity(0.8), BlendMode.dstATop),
+            ),
           ),
-        ),
-        constraints: BoxConstraints.expand(),
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  FlatButton(
-                    onPressed: () {},
-                    child: Icon(
-                      Icons.near_me,
-                      size: 50.0,
-                    ),
-                  ),
-                  FlatButton(
-                    onPressed: () {},
-                    child: Icon(
-                      Icons.location_city,
-                      size: 50.0,
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 15.0),
-                child: Row(
+          constraints: BoxConstraints.expand(),
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      '32°',
-                      style: kTempTextStyle,
+                    FlatButton(
+                      onPressed: () {},
+                      child: Icon(
+                        Icons.near_me,
+                        size: 50.0,
+                      ),
                     ),
-                    Text(
-                      '☀️',
-                      style: kConditionTextStyle,
+                    FlatButton(
+                      onPressed: () {},
+                      child: Icon(
+                        Icons.location_city,
+                        size: 50.0,
+                      ),
                     ),
                   ],
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 15.0),
-                child: Text(
-                  "It's 🍦 time in San Francisco!",
-                  textAlign: TextAlign.right,
-                  style: kMessageTextStyle,
+                Padding(
+                  padding: EdgeInsets.only(left: 15.0),
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        '32°',
+                        style: kTempTextStyle,
+                      ),
+                      Text(
+                        '☀️',
+                        style: kConditionTextStyle,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.only(right: 15.0),
+                  child: Text(
+                    "It's 🍦 time in San Francisco!",
+                    textAlign: TextAlign.right,
+                    style: kMessageTextStyle,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
+
+
+// String description = decodedData['weather'][0]['description'];
+// double temp = decodedData['main']['temp'];
+// int condition = decodedData['weather'][0]['id'];
+// String cityName = decodedData['name'];
