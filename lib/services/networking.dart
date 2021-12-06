@@ -6,7 +6,7 @@ class NetworkHelper {
 
   final String url;
 
-  Future<void> getData() async {
+  Future getData() async {
     var weatherUrl = Uri.parse(url);
     var response = await http.get(weatherUrl);
 

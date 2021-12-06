@@ -21,14 +21,17 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     try {
       NetworkHelper networkHelper = NetworkHelper(
-          'http://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=1f635a1b8a8a7ce1b47e04733a5e9e91');
+          'http://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=1f635a1b8a8a7ce1b47e04733a5e9e91&units=metric');
 
       var weatherData = await networkHelper.getData();
       // await Future.delayed(Duration(seconds: 5));
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return LocationScreen();
-      }));
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return LocationScreen(locationWeather: weatherData);
+        }),
+      );
     } catch (e) {
       print(e);
     }
